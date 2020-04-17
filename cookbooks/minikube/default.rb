@@ -20,7 +20,7 @@ end
 
 execute "chmod 755 /usr/local/bin/kubectl"
 
-execute "kubectl cluster-info" do
+execute "/usr/local/bin/kubectl cluster-info" do
   user "admin"
 end
 
