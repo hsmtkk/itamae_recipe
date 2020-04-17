@@ -1,0 +1,23 @@
+name: Ruby
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  syntax:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby 2.7
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7.x
+    - name: syntax check
+      run: |
+        ruby -c cookbooks/docker/default.rb
+        ruby -c roles/docker.rb
