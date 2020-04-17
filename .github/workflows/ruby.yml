@@ -21,3 +21,5 @@ jobs:
       run: |
         ruby -c cookbooks/docker/default.rb
         ruby -c roles/docker.rb
+        ruby -c cookbooks/minikube/default.rb
+        ruby -c roles/minikube.rb
