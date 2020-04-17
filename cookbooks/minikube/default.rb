@@ -2,5 +2,12 @@ execute "curl -L -o /tmp/minikube.rpm https://storage.googleapis.com/minikube/re
 
 execute "rpm -i /tmp/minikube.rpm"
 
-execute "minikube start"
+execute "curl -L -o /tmp/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+
+execute "mv /tmp/kubectl /usr/local/bin/kubectl"
+
+file "/usr/local/bin/kubectl" do
+  action :nothing
+  mode "0755"
+end
 
