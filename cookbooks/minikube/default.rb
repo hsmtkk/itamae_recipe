@@ -18,10 +18,7 @@ execute "mv /tmp/kubectl /usr/local/bin/kubectl" do
   not_if "test -f /usr/local/bin/kubectl"
 end
 
-file "/usr/local/bin/kubectl" do
-  action :nothing
-  mode "0755"
-end
+execute "chmod 755 /usr/local/bin/kubectl"
 
 execute "kubectl cluster-info"
 
